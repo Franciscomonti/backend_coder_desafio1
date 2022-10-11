@@ -7,16 +7,15 @@ class Usuario{
     }
 
     getFullName(){
-        return `Nombre y apellido: ${this.name} ${this.lastName}`
+        console.log (`Nombre y apellido: ${this.name} ${this.lastName}`)
+    }
+
+    countMascotas(){ 
+        console.log(`Cantidad de mascotas: ${ this.pets.length}`)
     }
 
     addMascota(pet){
-        this.pets.push({nombre: pet})
-    }
-
-    countMascotas(){
-        let cantidad = this.pets.length
-        return `Cantidad de mascotas: ${cantidad}`
+        this.pets.push(pet)
     }
 
     addBook(nombre, author){
@@ -27,25 +26,18 @@ class Usuario{
         this.books.map((libro)=> console.log(`Nombre de libro: ${libro.nombre}`))
     }
 
-    getPetsNames(){
-        this.pets.map((mascota)=> console.log(`Nombre de mascota: ${mascota.nombre}`))
-    }
 }
 
-let personita = new Usuario('Lau', 'Acunia', [{nombre: 'pinocho', autor: 'Nicolas'}] , [{nombre: 'pluto'}, {nombre: 'nala'}])
+let personita = new Usuario('Lau', 'Acunia', [{nombre: 'pinocho', autor: 'Nicolas'}] , ['pluto',  'nala'])
 
-let nombreCompletoPersonita = personita.getFullName()
-console.log(nombreCompletoPersonita)
+personita.getFullName()
 
-let agregarMascotaPersonita = personita.addMascota('perro')
+personita.addMascota('perro')
 
-let cantidadMascotasPersonita = personita.countMascotas()
-console.log(cantidadMascotasPersonita)
+personita.countMascotas()
 
-let nombreDeMascotas = personita.getPetsNames()
+personita.addBook('El zorro', 'j-blavin')
 
-let agregarNvoLibroPersonita = personita.addBook('El zorro', 'j-blavin')
-
-let obtenerNombreLibrosPersonita = personita.getBooksName()
+personita.getBooksName()
 
 console.log(personita)
